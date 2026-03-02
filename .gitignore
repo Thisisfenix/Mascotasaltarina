@@ -1,10 +1,6 @@
-__pycache__/
-*.pyc
-*.spec
-build/
-dist/
-screenshots/
-*.log
-config_mascota.json
-tutorial_visto.flag
-HolaGissel.rar
+# Ignorar todo en la raíz
+/*
+
+# Excepto .gitignore y HolaGissel
+!.gitignore
+!HolaGissel/
