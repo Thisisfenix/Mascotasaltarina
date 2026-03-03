@@ -1,0 +1,18 @@
+{
+  "version": "2.0.4",
+  "changelog": [
+    "🎮 Añadido sistema de DLCs",
+    "🕹️ Pack de Juegos con 7 minijuegos",
+    "🏃 Runner mejorado con IA adaptativa",
+    "🔧 Correcciones de bugs",
+    "⚡ Mejoras de rendimiento"
+  ],
+  "archivos_criticos": [
+    "MascotaSaltarina.exe",
+    "version.txt",
+    "assets/updater/Updater.exe"
+  ],
+  "dlcs_incluidos": [
+    "pack_juegos.py"
+  ]
+}
