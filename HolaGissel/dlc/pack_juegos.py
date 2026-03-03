@@ -8,9 +8,9 @@ import time
 
 DLC_INFO = {
     'nombre': 'Pack de Juegos Mega',
-    'version': '2.0.0',
+    'version': '2.1.0',
     'autor': 'Thisisfenix',
-    'descripcion': '10 minijuegos épicos: Snake, Pong, Flappy Cat, Simon Says, Whack-a-Mole, Breakout, Space Invaders, Memory, Tetris y Runner'
+    'descripcion': '7 minijuegos épicos: Snake, Flappy Cat, Simon Says, Whack-a-Mole, Space Invaders, Memory y Runner'
 }
 
 def inicializar(mascota):
@@ -57,14 +57,11 @@ def obtener_interfaz(mascota):
     # Lista de juegos con sus configuraciones
     juegos = [
         ("🐍 Snake", juego_snake, '#a6e3a1', 'Clásico juego de la serpiente'),
-        ("🏓 Pong", juego_pong, '#89b4fa', 'Juega contra la IA'),
         ("🐱 Flappy Cat", juego_flappy, '#f9e2af', 'Esquiva obstáculos volando'),
         ("🎨 Simon Says", juego_simon, '#cba6f7', 'Memoriza la secuencia'),
         ("🔨 Whack-a-Mole", juego_whack, '#f38ba8', 'Golpea los topos'),
-        ("🧱 Breakout", juego_breakout, '#fab387', 'Rompe todos los ladrillos'),
         ("👾 Space Invaders", juego_space_invaders, '#89dceb', 'Defiende la Tierra'),
         ("🧠 Memory", juego_memory, '#cba6f7', 'Encuentra las parejas'),
-        ("🟦 Tetris", juego_tetris, '#89b4fa', 'Tetris clásico'),
         ("🏃 Runner", juego_runner, '#f9e2af', 'Corre sin parar')
     ]
     
@@ -164,82 +161,6 @@ def juego_snake(mascota):
             direccion[0], direccion[1] = 10, 0
     
     win.bind('<Key>', cambiar_dir)
-    win.focus_set()
-    mover()
-
-def juego_pong(mascota):
-    """Juego Pong"""
-    win = tk.Toplevel(mascota.root)
-    win.title("🏓 Pong")
-    win.geometry("600x450")
-    win.configure(bg='#1e1e2e')
-    win.attributes('-topmost', True)
-    
-    tk.Label(win, text="🏓 PONG", bg='#1e1e2e', fg='#89b4fa', font=('Arial', 16, 'bold')).pack(pady=10)
-    
-    canvas = tk.Canvas(win, width=600, height=400, bg='#0a0e27', highlightthickness=0)
-    canvas.pack()
-    
-    # Estado
-    jugador_y = [180]
-    ia_y = [180]
-    bola_x, bola_y = [300, 200]
-    bola_dx, bola_dy = [4, 4]
-    puntos = [0, 0]
-    jugando = [True]
-    
-    def mover():
-        if not jugando[0]:
-            return
-        
-        # Mover bola
-        bola_x[0] += bola_dx[0]
-        bola_y[0] += bola_dy[0]
-        
-        # Rebote arriba/abajo
-        if bola_y[0] <= 10 or bola_y[0] >= 390:
-            bola_dy[0] *= -1
-        
-        # Colisión jugador
-        if bola_x[0] <= 25 and jugador_y[0] < bola_y[0] < jugador_y[0] + 80:
-            bola_dx[0] = abs(bola_dx[0])
-        
-        # Colisión IA (más lenta)
-        if bola_x[0] >= 565 and ia_y[0] < bola_y[0] < ia_y[0] + 80:
-            bola_dx[0] = -abs(bola_dx[0])
-        
-        # Punto
-        if bola_x[0] <= 0:
-            puntos[1] += 1
-            bola_x[0], bola_y[0] = 300, 200
-            bola_dx[0] = 4
-        elif bola_x[0] >= 600:
-            puntos[0] += 1
-            bola_x[0], bola_y[0] = 300, 200
-            bola_dx[0] = -4
-        
-        # IA más lenta para dar ventaja
-        if ia_y[0] + 40 < bola_y[0] - 10:
-            ia_y[0] += 2
-        elif ia_y[0] + 40 > bola_y[0] + 10:
-            ia_y[0] -= 2
-        
-        # Dibujar
-        canvas.delete('all')
-        canvas.create_rectangle(10, jugador_y[0], 20, jugador_y[0]+80, fill='#a6e3a1', outline='')
-        canvas.create_rectangle(580, ia_y[0], 590, ia_y[0]+80, fill='#f38ba8', outline='')
-        canvas.create_oval(bola_x[0]-10, bola_y[0]-10, bola_x[0]+10, bola_y[0]+10, fill='#89b4fa', outline='')
-        canvas.create_text(300, 20, text=f"{puntos[0]} - {puntos[1]}", fill='#cdd6f4', font=('Arial', 14, 'bold'))
-        
-        win.after(20, mover)
-    
-    def mover_jugador(event):
-        if event.keysym == 'Up' and jugador_y[0] > 0:
-            jugador_y[0] -= 25
-        elif event.keysym == 'Down' and jugador_y[0] < 320:
-            jugador_y[0] += 25
-    
-    win.bind('<Key>', mover_jugador)
     win.focus_set()
     mover()
 
@@ -478,103 +399,6 @@ def mostrar_menu_juegos(mascota):
     """DEPRECADO: Usa obtener_interfaz() en su lugar"""
     return obtener_interfaz(mascota)
 
-def juego_breakout(mascota):
-    """Breakout - Rompe ladrillos"""
-    win = tk.Toplevel(mascota.root)
-    win.title("🧱 Breakout")
-    win.geometry("400x550")
-    win.configure(bg='#1e1e2e')
-    win.attributes('-topmost', True)
-    
-    tk.Label(win, text="🧱 BREAKOUT", bg='#1e1e2e', fg='#fab387', font=('Arial', 16, 'bold')).pack(pady=10)
-    
-    canvas = tk.Canvas(win, width=400, height=500, bg='#0a0e27', highlightthickness=0)
-    canvas.pack()
-    
-    # Estado
-    paddle_x = [175]
-    bola_x, bola_y = [200, 400]
-    bola_dx, bola_dy = [3, -3]
-    ladrillos = []
-    puntos = [0]
-    jugando = [True]
-    
-    # Crear ladrillos
-    colores = ['#f38ba8', '#fab387', '#f9e2af', '#a6e3a1', '#89b4fa', '#cba6f7']
-    for fila in range(6):
-        for col in range(8):
-            ladrillos.append({
-                'x': col * 50,
-                'y': fila * 20 + 50,
-                'color': colores[fila],
-                'activo': True
-            })
-    
-    def mover():
-        if not jugando[0]:
-            return
-        
-        # Mover bola
-        bola_x[0] += bola_dx[0]
-        bola_y[0] += bola_dy[0]
-        
-        # Rebotes
-        if bola_x[0] <= 0 or bola_x[0] >= 400:
-            bola_dx[0] *= -1
-        if bola_y[0] <= 0:
-            bola_dy[0] *= -1
-        
-        # Paddle
-        if 380 < bola_y[0] < 390 and paddle_x[0] < bola_x[0] < paddle_x[0] + 80:
-            bola_dy[0] = -abs(bola_dy[0])
-        
-        # Game over
-        if bola_y[0] > 500:
-            jugando[0] = False
-            messagebox.showinfo("Game Over", f"Puntos: {puntos[0]}")
-            win.destroy()
-            return
-        
-        # Colisión ladrillos
-        for ladrillo in ladrillos:
-            if ladrillo['activo']:
-                if (ladrillo['x'] < bola_x[0] < ladrillo['x'] + 50 and
-                    ladrillo['y'] < bola_y[0] < ladrillo['y'] + 20):
-                    ladrillo['activo'] = False
-                    bola_dy[0] *= -1
-                    puntos[0] += 10
-        
-        # Victoria
-        if all(not l['activo'] for l in ladrillos):
-            jugando[0] = False
-            messagebox.showinfo("¡Victoria!", f"¡Ganaste! Puntos: {puntos[0]}")
-            win.destroy()
-            return
-        
-        # Dibujar
-        canvas.delete('all')
-        canvas.create_text(200, 20, text=f"Puntos: {puntos[0]}", fill='#89b4fa', font=('Arial', 14, 'bold'))
-        canvas.create_rectangle(paddle_x[0], 380, paddle_x[0]+80, 390, fill='#a6e3a1', outline='')
-        canvas.create_oval(bola_x[0]-8, bola_y[0]-8, bola_x[0]+8, bola_y[0]+8, fill='#f9e2af', outline='')
-        
-        for ladrillo in ladrillos:
-            if ladrillo['activo']:
-                canvas.create_rectangle(ladrillo['x'], ladrillo['y'], 
-                                      ladrillo['x']+48, ladrillo['y']+18,
-                                      fill=ladrillo['color'], outline='#1e1e2e')
-        
-        win.after(20, mover)
-    
-    def mover_paddle(event):
-        if event.keysym == 'Left' and paddle_x[0] > 0:
-            paddle_x[0] -= 20
-        elif event.keysym == 'Right' and paddle_x[0] < 320:
-            paddle_x[0] += 20
-    
-    win.bind('<Key>', mover_paddle)
-    win.focus_set()
-    mover()
-
 def juego_space_invaders(mascota):
     """Space Invaders simplificado"""
     win = tk.Toplevel(mascota.root)
@@ -719,173 +543,128 @@ def juego_memory(mascota):
         btn.grid(row=i//4, column=i%4, padx=5, pady=5)
         cartas.append({'btn': btn, 'simbolo': simbolos[i], 'revelada': False})
 
-def juego_tetris(mascota):
-    """Tetris simplificado"""
-    win = tk.Toplevel(mascota.root)
-    win.title("🟦 Tetris")
-    win.geometry("350x600")
-    win.configure(bg='#1e1e2e')
-    win.attributes('-topmost', True)
-    
-    tk.Label(win, text="🟦 TETRIS", bg='#1e1e2e', fg='#89b4fa', font=('Arial', 16, 'bold')).pack(pady=10)
-    tk.Label(win, text="Flechas: Mover | Arriba: Rotar | Abajo: Bajar rápido", bg='#1e1e2e', fg='#a6a6a6', font=('Arial', 8)).pack()
-    
-    canvas = tk.Canvas(win, width=300, height=500, bg='#0a0e27', highlightthickness=0)
-    canvas.pack(pady=10)
-    
-    # Grid 10x20
-    grid = [[0 for _ in range(10)] for _ in range(20)]
-    
-    # Piezas (formato: [filas])
-    piezas = [
-        [[1,1,1,1]],  # I
-        [[1,1],[1,1]],  # O
-        [[0,1,0],[1,1,1]],  # T
-        [[1,1,0],[0,1,1]],  # S
-        [[0,1,1],[1,1,0]],  # Z
-    ]
-    
-    pieza_actual = [random.choice(piezas)]
-    pieza_x, pieza_y = [3, 0]
-    puntos = [0]
-    lineas = [0]
-    jugando = [True]
-    
-    def puede_mover(px, py, pieza):
-        for i, fila in enumerate(pieza):
-            for j, val in enumerate(fila):
-                if val:
-                    nx, ny = px + j, py + i
-                    if nx < 0 or nx >= 10 or ny >= 20:
-                        return False
-                    if ny >= 0 and grid[ny][nx]:
-                        return False
-        return True
-    
-    def fijar_pieza():
-        for i, fila in enumerate(pieza_actual[0]):
-            for j, val in enumerate(fila):
-                if val and pieza_y[0] + i >= 0:
-                    grid[pieza_y[0] + i][pieza_x[0] + j] = 1
-        
-        # Eliminar líneas completas
-        lineas_eliminadas = 0
-        for i in range(19, -1, -1):
-            if all(grid[i]):
-                grid.pop(i)
-                grid.insert(0, [0] * 10)
-                lineas_eliminadas += 1
-        
-        if lineas_eliminadas > 0:
-            lineas[0] += lineas_eliminadas
-            puntos[0] += lineas_eliminadas * 100
-        
-        # Nueva pieza
-        pieza_actual[0] = random.choice(piezas)
-        pieza_x[0], pieza_y[0] = 3, 0
-        
-        # Game over
-        if not puede_mover(pieza_x[0], pieza_y[0], pieza_actual[0]):
-            jugando[0] = False
-            messagebox.showinfo("Game Over", f"Puntos: {puntos[0]}\nLíneas: {lineas[0]}")
-            win.destroy()
-    
-    def rotar_pieza():
-        nueva = [list(fila) for fila in zip(*pieza_actual[0][::-1])]
-        if puede_mover(pieza_x[0], pieza_y[0], nueva):
-            pieza_actual[0] = nueva
-    
-    def mover_pieza(event):
-        if not jugando[0]:
-            return
-        
-        if event.keysym == 'Left':
-            if puede_mover(pieza_x[0] - 1, pieza_y[0], pieza_actual[0]):
-                pieza_x[0] -= 1
-        elif event.keysym == 'Right':
-            if puede_mover(pieza_x[0] + 1, pieza_y[0], pieza_actual[0]):
-                pieza_x[0] += 1
-        elif event.keysym == 'Down':
-            if puede_mover(pieza_x[0], pieza_y[0] + 1, pieza_actual[0]):
-                pieza_y[0] += 1
-        elif event.keysym == 'Up':
-            rotar_pieza()
-        dibujar()
-    
-    def actualizar():
-        if not jugando[0]:
-            return
-        
-        if puede_mover(pieza_x[0], pieza_y[0] + 1, pieza_actual[0]):
-            pieza_y[0] += 1
-        else:
-            fijar_pieza()
-        
-        dibujar()
-        win.after(500, actualizar)
-    
-    def dibujar():
-        canvas.delete('all')
-        canvas.create_text(150, 20, text=f"Puntos: {puntos[0]} | Líneas: {lineas[0]}", 
-                         fill='#89b4fa', font=('Arial', 11, 'bold'))
-        
-        # Grid
-        for i in range(20):
-            for j in range(10):
-                if grid[i][j]:
-                    canvas.create_rectangle(j*30, i*25, j*30+28, i*25+23, 
-                                          fill='#6c7086', outline='#1e1e2e')
-        
-        # Pieza actual
-        for i, fila in enumerate(pieza_actual[0]):
-            for j, val in enumerate(fila):
-                if val:
-                    canvas.create_rectangle((pieza_x[0]+j)*30, (pieza_y[0]+i)*25,
-                                          (pieza_x[0]+j)*30+28, (pieza_y[0]+i)*25+23,
-                                          fill='#a6e3a1', outline='#1e1e2e')
-    
-    win.bind('<Key>', mover_pieza)
-    win.focus_set()
-    dibujar()
-    actualizar()
-
 def juego_runner(mascota):
-    """Endless Runner - Estilo dinosaurio de Google"""
+    """Endless Runner - Estilo dinosaurio de Google mejorado"""
     from PIL import Image, ImageTk
     
     win = tk.Toplevel(mascota.root)
     win.title("🏃 Runner")
-    win.geometry("600x400")
+    win.geometry("700x500")
     win.configure(bg='#1e1e2e')
     win.attributes('-topmost', True)
     
-    tk.Label(win, text="🏃 DINO RUNNER", bg='#1e1e2e', fg='#f9e2af', font=('Arial', 16, 'bold')).pack(pady=10)
-    tk.Label(win, text="Presiona ESPACIO para saltar", bg='#1e1e2e', fg='#a6a6a6', font=('Arial', 9)).pack()
+    # Header
+    tk.Label(win, text="🏃 DINO RUNNER", bg='#1e1e2e', fg='#f9e2af', font=('Arial', 18, 'bold')).pack(pady=10)
     
-    canvas = tk.Canvas(win, width=600, height=320, bg='#f7f7f7', highlightthickness=0)
-    canvas.pack()
+    # Canvas
+    canvas = tk.Canvas(win, width=700, height=350, bg='#f7f7f7', highlightthickness=0)
+    canvas.pack(pady=10)
     
     # Cargar imagen de la mascota
+    mascota_img = None
     try:
         img = Image.open(mascota.imagen_path)
-        img = img.resize((40, 40), Image.Resampling.LANCZOS)
+        img = img.resize((45, 45), Image.Resampling.LANCZOS)
         mascota_img = ImageTk.PhotoImage(img)
     except:
-        mascota_img = None
+        pass
     
     # Estado
-    jugador_y = [230]
+    jugador_y = [250]
     saltando = [False]
     velocidad_y = [0]
-    obstaculos = [[600]]
+    obstaculos = []
+    nubes = [[650, 60], [500, 100], [350, 80]]
+    suelo_x = [0]
     puntos = [0]
-    velocidad_juego = [5]
-    jugando = [True]
+    velocidad = [6]
+    jugando = [False]
+    iniciado = [False]
+    
+    # IA adaptativa
+    historial_saltos = []  # Guarda cuándo salta el jugador
+    dificultad_ia = [0.5]  # 0=fácil, 1=difícil
+    ultimo_salto = [0]
+    
+    # Pantalla inicio
+    def calcular_distancia_ia():
+        """IA decide distancia entre obstáculos según habilidad del jugador"""
+        # Si el jugador es bueno (dificultad alta), obstáculos más cerca
+        if dificultad_ia[0] > 0.7:
+            return random.randint(250, 350)
+        elif dificultad_ia[0] > 0.5:
+            return random.randint(300, 450)
+        else:
+            # Jugador novato, más espacio
+            return random.randint(400, 550)
+    
+    def decidir_obstaculo_ia():
+        """IA decide qué obstáculo poner según el comportamiento del jugador"""
+        # Primeros 3 obstáculos siempre fáciles
+        if puntos[0] < 3:
+            return 'bajo'
+        
+        # Si el jugador no ha saltado recientemente, poner obstáculo fácil
+        if puntos[0] - ultimo_salto[0] > 3:
+            return 'bajo'
+        
+        # Si el jugador es bueno, mezclar obstáculos difíciles
+        if dificultad_ia[0] > 0.7:
+            return random.choice(['bajo', 'alto', 'doble', 'doble'])
+        elif dificultad_ia[0] > 0.5:
+            return random.choice(['bajo', 'bajo', 'alto', 'doble'])
+        else:
+            # Jugador novato, más obstáculos fáciles
+            return random.choice(['bajo', 'bajo', 'bajo', 'alto'])
+    
+    def mostrar_inicio():
+        canvas.delete('all')
+        # Cielo y suelo
+        canvas.create_rectangle(0, 0, 700, 300, fill='#87ceeb', outline='')
+        canvas.create_rectangle(0, 300, 700, 350, fill='#8b7355', outline='')
+        canvas.create_line(0, 300, 700, 300, fill='#654321', width=3)
+        
+        # Título
+        canvas.create_text(350, 100, text="🏃 DINO RUNNER", fill='#ffffff', 
+                          font=('Arial', 32, 'bold'), anchor='center')
+        canvas.create_text(350, 150, text="Presiona ESPACIO para saltar", fill='#ffffff', 
+                          font=('Arial', 14), anchor='center')
+        canvas.create_text(350, 180, text="Esquiva los obstáculos", fill='#ffffff', 
+                          font=('Arial', 12), anchor='center')
+        
+        # Mascota preview
+        if mascota_img:
+            canvas.create_image(350, 240, image=mascota_img)
+        else:
+            canvas.create_rectangle(330, 220, 370, 260, fill='#535353', outline='')
+    
+    def iniciar_juego():
+        if not iniciado[0]:
+            iniciado[0] = True
+            jugando[0] = True
+            obstaculos.clear()
+            obstaculos.append({'x': 700, 'tipo': random.choice(['bajo', 'alto', 'doble'])})
+            puntos[0] = 0
+            velocidad[0] = 6
+            actualizar()
     
     def saltar(event):
-        if not saltando[0] and jugador_y[0] >= 230:
+        if not iniciado[0]:
+            iniciar_juego()
+        elif not saltando[0] and jugador_y[0] >= 250:
             saltando[0] = True
-            velocidad_y[0] = -15
+            velocidad_y[0] = -16
+            # IA aprende: registra el salto y ajusta dificultad
+            if len(obstaculos) > 0:
+                distancia = obstaculos[0]['x'] - 90
+                historial_saltos.append(distancia)
+                # Si salta muy temprano o tarde, reduce dificultad
+                if distancia > 150 or distancia < 30:
+                    dificultad_ia[0] = max(0.3, dificultad_ia[0] - 0.05)
+                else:
+                    # Si salta bien, aumenta dificultad
+                    dificultad_ia[0] = min(1.0, dificultad_ia[0] + 0.02)
+            ultimo_salto[0] = puntos[0]
     
     def actualizar():
         if not jugando[0]:
@@ -893,69 +672,127 @@ def juego_runner(mascota):
         
         # Física salto
         if saltando[0]:
-            velocidad_y[0] += 1
+            velocidad_y[0] += 1.2
             jugador_y[0] += velocidad_y[0]
-            
-            if jugador_y[0] >= 230:
-                jugador_y[0] = 230
+            if jugador_y[0] >= 250:
+                jugador_y[0] = 250
                 saltando[0] = False
                 velocidad_y[0] = 0
         
+        # Mover suelo
+        suelo_x[0] -= velocidad[0]
+        if suelo_x[0] <= -50:
+            suelo_x[0] = 0
+        
+        # Mover nubes
+        for nube in nubes:
+            nube[0] -= 2
+            if nube[0] < -50:
+                nube[0] = 750
+                nube[1] = random.randint(50, 120)
+        
         # Mover obstáculos
         for obs in obstaculos:
-            obs[0] -= velocidad_juego[0]
+            obs['x'] -= velocidad[0]
         
-        # Añadir obstáculos
-        if obstaculos[-1][0] < 400:
-            obstaculos.append([600])
+        # Añadir obstáculos con IA adaptativa
+        if len(obstaculos) == 0 or obstaculos[-1]['x'] < calcular_distancia_ia():
+            tipo = decidir_obstaculo_ia()
+            obstaculos.append({'x': 700, 'tipo': tipo})
             puntos[0] += 1
-            # Aumentar velocidad gradualmente
-            if puntos[0] % 5 == 0:
-                velocidad_juego[0] = min(10, velocidad_juego[0] + 0.5)
+            if puntos[0] % 10 == 0:
+                velocidad[0] = min(12, velocidad[0] + 1)
         
         # Eliminar obstáculos
-        if obstaculos[0][0] < -30:
-            obstaculos.pop(0)
+        obstaculos[:] = [o for o in obstaculos if o['x'] > -50]
         
-        # Colisión
+        # Colisiones mejoradas
         for obs in obstaculos:
-            if 80 < obs[0] < 120 and jugador_y[0] + 40 > 270:
-                jugando[0] = False
-                messagebox.showinfo("Game Over", f"Puntos: {puntos[0]}")
-                win.destroy()
-                return
+            if 70 < obs['x'] < 115:
+                if obs['tipo'] == 'bajo' and jugador_y[0] + 45 > 255:
+                    game_over()
+                    return
+                elif obs['tipo'] == 'alto' and jugador_y[0] < 200 and jugador_y[0] + 45 > 200:
+                    game_over()
+                    return
+                elif obs['tipo'] == 'doble' and (jugador_y[0] + 45 > 255 or (jugador_y[0] < 200 and jugador_y[0] + 45 > 200)):
+                    game_over()
+                    return
         
-        # Dibujar
+        dibujar()
+        win.after(30, actualizar)
+    
+    def dibujar():
         canvas.delete('all')
         
-        # Suelo
-        canvas.create_line(0, 290, 600, 290, fill='#535353', width=2)
+        # Cielo degradado
+        canvas.create_rectangle(0, 0, 700, 300, fill='#87ceeb', outline='')
         
-        # Puntos
-        canvas.create_text(500, 30, text=f"HI {puntos[0]:05d}", fill='#535353', font=('Courier', 12, 'bold'))
+        # Nubes
+        for nube in nubes:
+            canvas.create_oval(nube[0], nube[1], nube[0]+40, nube[1]+25, fill='#ffffff', outline='')
+            canvas.create_oval(nube[0]+20, nube[1]-5, nube[0]+60, nube[1]+20, fill='#ffffff', outline='')
+            canvas.create_oval(nube[0]+40, nube[1], nube[0]+80, nube[1]+25, fill='#ffffff', outline='')
         
-        # Jugador (mascota del usuario)
+        # Suelo con textura
+        canvas.create_rectangle(0, 300, 700, 350, fill='#8b7355', outline='')
+        canvas.create_line(0, 300, 700, 300, fill='#654321', width=3)
+        for i in range(int(suelo_x[0]), 700, 50):
+            canvas.create_line(i, 300, i+20, 300, fill='#654321', width=2)
+        
+        # HUD
+        canvas.create_text(650, 30, text=f"HI {puntos[0]:05d}", fill='#2c2c2c', 
+                          font=('Courier', 14, 'bold'))
+        canvas.create_text(650, 55, text=f"VEL: {int(velocidad[0])}", fill='#2c2c2c', 
+                          font=('Courier', 10))
+        
+        # Jugador
         if mascota_img:
-            canvas.create_image(100, jugador_y[0]+20, image=mascota_img)
+            canvas.create_image(90, jugador_y[0]+22, image=mascota_img)
         else:
-            canvas.create_rectangle(80, jugador_y[0], 120, jugador_y[0]+40, fill='#535353', outline='')
+            canvas.create_rectangle(70, jugador_y[0], 110, jugador_y[0]+45, fill='#535353', outline='')
         
-        # Obstáculos (cactus)
+        # Obstáculos variados
         for obs in obstaculos:
-            canvas.create_rectangle(obs[0], 250, obs[0]+20, 290, fill='#535353', outline='')
-            canvas.create_rectangle(obs[0]+5, 240, obs[0]+15, 250, fill='#535353', outline='')
-        
-        # Nubes decorativas
-        if puntos[0] % 2 == 0:
-            canvas.create_oval(450, 50, 480, 70, fill='#d3d3d3', outline='')
-            canvas.create_oval(470, 45, 500, 65, fill='#d3d3d3', outline='')
-        
-        win.after(30, actualizar)
+            if obs['tipo'] == 'bajo':
+                # Cactus bajo
+                canvas.create_rectangle(obs['x'], 270, obs['x']+25, 300, fill='#2d5016', outline='')
+                canvas.create_rectangle(obs['x']+5, 260, obs['x']+12, 270, fill='#2d5016', outline='')
+                canvas.create_rectangle(obs['x']+13, 260, obs['x']+20, 270, fill='#2d5016', outline='')
+            elif obs['tipo'] == 'alto':
+                # Pterodáctilo volador
+                canvas.create_text(obs['x']+15, 210, text='🦅', font=('Arial', 30))
+            elif obs['tipo'] == 'doble':
+                # Cactus doble
+                canvas.create_rectangle(obs['x'], 265, obs['x']+15, 300, fill='#2d5016', outline='')
+                canvas.create_rectangle(obs['x']+20, 270, obs['x']+35, 300, fill='#2d5016', outline='')
+    
+    def game_over():
+        jugando[0] = False
+        canvas.create_rectangle(200, 120, 500, 230, fill='#1e1e2e', outline='#f9e2af', width=3)
+        canvas.create_text(350, 150, text="GAME OVER", fill='#f38ba8', 
+                          font=('Arial', 24, 'bold'))
+        canvas.create_text(350, 190, text=f"Puntos: {puntos[0]}", fill='#a6e3a1', 
+                          font=('Arial', 16))
+        win.after(2000, win.destroy)
+    
+    # Botón iniciar
+    btn_frame = tk.Frame(win, bg='#1e1e2e')
+    btn_frame.pack(pady=10)
+    
+    def click_iniciar():
+        btn_iniciar.config(state='disabled')
+        iniciar_juego()
+    
+    btn_iniciar = tk.Button(btn_frame, text="▶ INICIAR JUEGO", command=click_iniciar,
+                           bg='#a6e3a1', fg='#1e1e2e', font=('Arial', 14, 'bold'),
+                           width=20, height=2, relief='flat', cursor='hand2')
+    btn_iniciar.pack()
     
     win.bind('<space>', saltar)
     win.bind('<KeyPress-space>', saltar)
     win.focus_set()
-    actualizar()
+    mostrar_inicio()
 
 # Agregar botón al menú de juegos de la mascota
 def agregar_boton_menu(mascota):
