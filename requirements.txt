@@ -3,3 +3,4 @@ pygame
 psutil
 requests
 pywin32
+pystray
