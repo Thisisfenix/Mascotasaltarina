@@ -1,0 +1,10 @@
+{
+  "version": "2.0.777",
+  "download_url": "https://github.com/Thisisfenix/Mascotasaltarina/releases/latest",
+  "changelog": [
+    "Layout vertical mejorado (sidebar izquierdo)",
+    "Sistema de guardado completo implementado",
+    "Correcciones de bugs y optimizaciones"
+  ],
+  "note": "Este archivo se mantiene para compatibilidad. La version se lee de version.txt"
+}
