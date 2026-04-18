@@ -1,0 +1,23 @@
+{
+  "ClickCount": 0,
+  "Speed": 3.0,
+  "Size": 100,
+  "Opacity": 1.0,
+  "BounceEnabled": true,
+  "GravityEnabled": false,
+  "SoundEnabled": false,
+  "TrailEnabled": false,
+  "MusicEnabled": false,
+  "ImagePath": "C:\\Users\\aleve\\Documents\\GitHub\\Mascotasaltarina\\MascotaSaltarinaCS\\publish\\assets/AnkushCat.png",
+  "SoundPath": "C:\\Users\\aleve\\Documents\\GitHub\\Mascotasaltarina\\MascotaSaltarinaCS\\publish\\assets/sonidito.mp3",
+  "MusicPath": "assets/Music.mp3",
+  "CustomPhrases": [],
+  "TotalClicks": 0,
+  "PosX": 755.0,
+  "PosY": 755.0,
+  "FirstLaunch": "2026-04-18T01:50:39.8210795-05:00",
+  "SessionCount": 0,
+  "AchievementFirstClick": false,
+  "Achievement100Clicks": false,
+  "Achievement1000Clicks": false
+}

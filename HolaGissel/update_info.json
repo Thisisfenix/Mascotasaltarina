@@ -13,7 +13,7 @@
     "🎨 UI moderna con efecto Mica (Windows 11)"
   ],
   "exe_nombre": "AnkushCat.exe",
-  "base_url": "https://raw.githubusercontent.com/Thisisfenix/Mascotasaltarina/main/MascotaSaltarinaCS/publish_fd",
+  "base_url": "https://raw.githubusercontent.com/Thisisfenix/Mascotasaltarina/main/MascotaSaltarinaCS/publish",
   "archivos": [
     "AnkushCat.exe",
     "AnkushCat.dll",
