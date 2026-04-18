@@ -16,6 +16,7 @@
 *.json.user
 *.bat
 *.cmd
+*.py
 AssemblyInfo.cs
 
 # ── Carpetas de build/compilación ────────────────────────────
@@ -33,6 +34,24 @@ MascotaSaltarina.SDK/
 # bin/ SÍ se sube (referencia)
 # — no ignorar ninguno de los dos —
 
+# ── Archivos de debug ─────────────────────────────────────────
+*.pdb
+
+# ── Carpetas de idiomas de Roslyn (innecesarias en publish_fd) ─
+MascotaSaltarinaCS/publish_fd/cs/
+MascotaSaltarinaCS/publish_fd/de/
+MascotaSaltarinaCS/publish_fd/es/
+MascotaSaltarinaCS/publish_fd/fr/
+MascotaSaltarinaCS/publish_fd/it/
+MascotaSaltarinaCS/publish_fd/ja/
+MascotaSaltarinaCS/publish_fd/ko/
+MascotaSaltarinaCS/publish_fd/pl/
+MascotaSaltarinaCS/publish_fd/pt-BR/
+MascotaSaltarinaCS/publish_fd/ru/
+MascotaSaltarinaCS/publish_fd/tr/
+MascotaSaltarinaCS/publish_fd/zh-Hans/
+MascotaSaltarinaCS/publish_fd/zh-Hant/
+
 # ── Python cache ──────────────────────────────────────────────
 __pycache__/
 *.pyc
@@ -49,6 +68,12 @@ screenshots/
 # ── Save data del usuario ─────────────────────────────────────
 assets/data/save_data.json
 HolaGissel/assets/data/save_data.json
+
+# ── Archivos locales del usuario ─────────────────────────────
+test_tkinter.py
+tutorial_visto.flag
+variables.txt
+RESUMEN_PROYECTO.md
 
 # ── OS ────────────────────────────────────────────────────────
 .DS_Store
