@@ -1,0 +1,23 @@
+{
+  "ClickCount": 0,
+  "Speed": 3.0,
+  "Size": 100,
+  "Opacity": 1.0,
+  "BounceEnabled": true,
+  "GravityEnabled": false,
+  "SoundEnabled": false,
+  "TrailEnabled": false,
+  "MusicEnabled": false,
+  "ImagePath": "assets/AnkushCat.png",
+  "SoundPath": "assets/sonidito.mp3",
+  "MusicPath": "assets/Music.mp3",
+  "CustomPhrases": [],
+  "TotalClicks": 0,
+  "PosX": 114.0,
+  "PosY": 455.0,
+  "FirstLaunch": "2026-04-17T19:59:06.3747516-05:00",
+  "SessionCount": 0,
+  "AchievementFirstClick": false,
+  "Achievement100Clicks": false,
+  "Achievement1000Clicks": false
+}

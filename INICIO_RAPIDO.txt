@@ -1,0 +1,230 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║                    🐱 ANKUSH CAT - MASCOTA SALTARINA 🐱                      ║
+║                                                                              ║
+║                         PROYECTO PYTHON + C# REBORN                          ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+
+📁 ESTRUCTURA DEL PROYECTO
+═══════════════════════════════════════════════════════════════════════════════
+
+proyecto/
+│
+├── 🐍 VERSIÓN PYTHON (Original)
+│   ├── mascota_saltarina.py       ← Código principal Python
+│   ├── requirements.txt           ← Dependencias Python
+│   ├── compilar.bat              ← Compilar a EXE
+│   └── mods/ + dlc/              ← Sistema de mods y DLCs
+│
+├── 💎 VERSIÓN C# (Reborn)
+│   └── MascotaSaltarinaCS/
+│       ├── *.cs + *.xaml         ← Código C# + WPF
+│       ├── compilar.bat          ← Compilar versión normal
+│       └── compilar_standalone.bat ← Compilar versión standalone
+│
+├── 📦 ASSETS (Compartidos)
+│   └── assets/
+│       ├── AnkushCat.png         ← Imagen principal
+│       ├── *.mp3                 ← Sonidos
+│       └── video/                ← Videos
+│
+└── 📚 DOCUMENTACIÓN
+    ├── README_PROYECTO_COMPLETO.md
+    ├── COMPARACION_PYTHON_VS_CSHARP.md
+    ├── GUIA_MIGRACION.md
+    ├── INSTALACION_RAPIDA.md
+    └── RESUMEN_PROYECTO.md
+
+
+⚡ INICIO RÁPIDO
+═══════════════════════════════════════════════════════════════════════════════
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ OPCIÓN 1: PYTHON (Multiplataforma)                                         │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+  1. Instalar Python 3.8+ desde python.org
+  2. Abrir terminal en la carpeta del proyecto
+  3. Ejecutar:
+     
+     pip install -r requirements.txt
+     python mascota_saltarina.py
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ OPCIÓN 2: C# (Solo Windows, Mejor Rendimiento)                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+  1. Instalar .NET 8.0+ desde dotnet.microsoft.com
+  2. Abrir terminal en MascotaSaltarinaCS
+  3. Ejecutar:
+     
+     cd MascotaSaltarinaCS
+     dotnet run
+
+
+🔨 COMPILAR EJECUTABLES
+═══════════════════════════════════════════════════════════════════════════════
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ PYTHON → EXE                                                                │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+  pip install pyinstaller
+  pyinstaller --onefile --windowed --icon=icon.ico mascota_saltarina.py
+  
+  → Ejecutable en: dist/mascota_saltarina.exe (~50-100 MB)
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ C# → EXE (Versión Normal)                                                   │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+  cd MascotaSaltarinaCS
+  compilar.bat
+  
+  → Ejecutable en: publish/AnkushCat.exe (~15 MB)
+  ⚠️  Requiere .NET instalado en el PC donde se ejecute
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ C# → EXE (Versión Standalone)                                               │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+  cd MascotaSaltarinaCS
+  compilar_standalone.bat
+  
+  → Ejecutable en: publish-standalone/AnkushCat.exe (~60-80 MB)
+  ✅ NO requiere .NET instalado, funciona en cualquier PC
+
+
+📊 COMPARACIÓN RÁPIDA
+═══════════════════════════════════════════════════════════════════════════════
+
+┌──────────────────┬─────────────────┬─────────────────┬──────────────────┐
+│ Característica   │ Python          │ C#              │ Ganador          │
+├──────────────────┼─────────────────┼─────────────────┼──────────────────┤
+│ Plataforma       │ Win/Mac/Linux   │ Solo Windows    │ 🐍 Python        │
+│ Rendimiento      │ ⭐⭐⭐          │ ⭐⭐⭐⭐⭐      │ 💎 C#            │
+│ Uso de RAM       │ ~100 MB         │ ~50 MB          │ 💎 C#            │
+│ Tiempo inicio    │ ~2-3 seg        │ ~0.5-1 seg      │ 💎 C#            │
+│ Interfaz         │ Básica          │ Moderna         │ 💎 C#            │
+│ Características  │ Completas       │ Core            │ 🐍 Python        │
+│ Desarrollo       │ Rápido          │ Estructurado    │ 🐍 Python        │
+│ Tamaño EXE       │ ~50-100 MB      │ ~15-80 MB       │ ⚖️  Empate       │
+└──────────────────┴─────────────────┴─────────────────┴──────────────────┘
+
+
+✨ CARACTERÍSTICAS
+═══════════════════════════════════════════════════════════════════════════════
+
+✅ IMPLEMENTADAS EN AMBAS VERSIONES:
+  • Mascota flotante que se mueve por la pantalla
+  • Sistema de rebote en bordes
+  • Física de gravedad
+  • Efectos visuales (rastro, partículas)
+  • Sonidos interactivos
+  • Modo perseguir cursor
+  • Explosión con animación
+  • Panel de control moderno
+  • Sistema de estadísticas
+  • Verificación de actualizaciones
+
+✅ SOLO EN PYTHON (Por ahora):
+  • Sistema de mods dinámicos
+  • Sistema de DLCs
+  • Múltiples mascotas simultáneas
+  • Modo experimental avanzado
+  • Juegos integrados
+  • Sistema de logros y niveles
+  • 20+ modos especiales
+
+
+🎮 USO BÁSICO
+═══════════════════════════════════════════════════════════════════════════════
+
+  🖱️  CLIC IZQUIERDO    → Interactuar con la mascota
+  🖱️  CLIC DERECHO     → Menú contextual
+  🎛️  PANEL DE CONTROL → Ajustar configuración
+  
+  MODOS ESPECIALES:
+  • 🎯 Perseguir Cursor
+  • 🌍 Gravedad
+  • 👻 Invisible
+  • 🔍 Zoom Automático
+  • 🌌 Orbital
+  • ⚡ Zigzag
+  • 🚀 Teletransporte
+
+
+❓ PROBLEMAS COMUNES
+═══════════════════════════════════════════════════════════════════════════════
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ Python: "No module named 'PIL'"                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+  
+  pip install pillow pygame psutil requests pywin32 pystray
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ C#: "dotnet no se reconoce"                                                 │
+└─────────────────────────────────────────────────────────────────────────────┘
+  
+  1. Instala .NET SDK desde dotnet.microsoft.com
+  2. Reinicia la terminal
+  3. Verifica: dotnet --version
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ "No se encuentra la imagen"                                                 │
+└─────────────────────────────────────────────────────────────────────────────┘
+  
+  • Verifica que la carpeta 'assets' esté en el mismo directorio
+  • Verifica que exista 'assets/AnkushCat.png'
+
+
+📚 DOCUMENTACIÓN COMPLETA
+═══════════════════════════════════════════════════════════════════════════════
+
+  📖 README_PROYECTO_COMPLETO.md
+     → Documentación completa del proyecto
+
+  📊 COMPARACION_PYTHON_VS_CSHARP.md
+     → Análisis detallado de diferencias
+
+  🔄 GUIA_MIGRACION.md
+     → Cómo migrar código Python a C#
+
+  ⚡ INSTALACION_RAPIDA.md
+     → Guía de instalación rápida
+
+  📋 RESUMEN_PROYECTO.md
+     → Resumen ejecutivo del proyecto
+
+
+🤝 CONTRIBUIR
+═══════════════════════════════════════════════════════════════════════════════
+
+  ¿Quieres contribuir? ¡Genial!
+  
+  1. Fork el proyecto
+  2. Crea una rama (git checkout -b feature/MiCaracteristica)
+  3. Commit cambios (git commit -m 'Agregar característica')
+  4. Push a la rama (git push origin feature/MiCaracteristica)
+  5. Abre un Pull Request
+
+
+📞 SOPORTE
+═══════════════════════════════════════════════════════════════════════════════
+
+  • GitHub Issues: Reportar bugs
+  • GitHub Discussions: Preguntas y sugerencias
+  • Email: Ver perfil de GitHub
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+                    🐱 ¡DISFRUTA DE ANKUSH CAT! ✨
+
+                         Versión: 2.0.0
+                      Fecha: Abril 2026
+
+═══════════════════════════════════════════════════════════════════════════════

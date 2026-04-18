@@ -1,10 +1,35 @@
 {
-  "version": "2.0.777",
-  "download_url": "https://github.com/Thisisfenix/Mascotasaltarina/releases/latest",
+  "version": "3.0.0",
+  "nombre": "Ankush Cat v3.0 - Reborn",
+  "descripcion": "Nueva version en C# con WPF. Requiere .NET 8 Desktop Runtime.",
+  "dotnet_url": "https://dotnet.microsoft.com/en-us/download/dotnet/8.0",
   "changelog": [
-    "Layout vertical mejorado (sidebar izquierdo)",
-    "Sistema de guardado completo implementado",
-    "Correcciones de bugs y optimizaciones"
+    "✨ Reescrito completamente en C# con WPF",
+    "🎮 8 minijuegos: Snake, Simon Says, Whack-a-Mole, Space Invaders y mas",
+    "🌀 25+ modos especiales (orbital, tornado, arcoiris, etc.)",
+    "🔧 Sistema de Mods y DLCs con scripts .cs en tiempo real",
+    "🐱 Sistema de mascota con hambre, felicidad y XP",
+    "💾 Guardado automatico de configuracion",
+    "🎨 UI moderna con efecto Mica (Windows 11)"
   ],
-  "note": "Este archivo se mantiene para compatibilidad. La version se lee de version.txt"
+  "exe_nombre": "AnkushCat.exe",
+  "base_url": "https://raw.githubusercontent.com/Thisisfenix/Mascotasaltarina/main/MascotaSaltarinaCS/publish_fd",
+  "archivos": [
+    "AnkushCat.exe",
+    "AnkushCat.dll",
+    "AnkushCat.deps.json",
+    "AnkushCat.runtimeconfig.json",
+    "MascotaSaltarina.SDK.dll",
+    "Microsoft.CodeAnalysis.dll",
+    "Microsoft.CodeAnalysis.CSharp.dll",
+    "Newtonsoft.Json.dll",
+    "NAudio.dll",
+    "NAudio.Core.dll",
+    "NAudio.Wasapi.dll",
+    "NAudio.WinMM.dll",
+    "NAudio.Midi.dll",
+    "NAudio.Asio.dll",
+    "NAudio.WinForms.dll",
+    "version.txt"
+  ]
 }

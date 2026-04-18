@@ -3,8 +3,8 @@
   "mods_activos": {},
   "estadisticas": {
     "clicks_totales": 0,
-    "distancia_recorrida": 203,
-    "tiempo_jugado": 6,
+    "distancia_recorrida": 10364,
+    "tiempo_jugado": 55,
     "historial_clicks": 0
   },
   "configuracion": {
@@ -31,8 +31,8 @@
     "experiencia": 0,
     "logros": [],
     "inventario": [],
-    "hambre": 96,
-    "felicidad": 97,
+    "hambre": 90,
+    "felicidad": 94,
     "estado_animo": "feliz"
   },
   "modos_activos": {
@@ -99,15 +99,15 @@
     "camaleon_indice": 0
   },
   "posicion_actual": {
-    "x": 875,
-    "y": 295,
-    "vel_x": 3,
-    "vel_y": -3,
+    "x": 416,
+    "y": 118,
+    "vel_x": -3,
+    "vel_y": 3,
     "vel_gravedad": 0
   },
   "timestamps": {
     "ultimo_click": 0,
-    "ultimo_hambre": 1772870031.872501,
+    "ultimo_hambre": 1776474945.9272227,
     "ultimo_interaccion": 1772869807.663402,
     "ladron_ultimo_robo": 0,
     "ruleta_ultimo": 0,

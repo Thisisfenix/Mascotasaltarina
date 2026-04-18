@@ -1,6 +1,54 @@
-# Ignorar todo en la raíz
-/*
+# ══════════════════════════════════════════════════════════════
+#  .gitignore — Ankush Cat / Mascota Saltarina
+#  Solo se sube: bin/, publish_fd/, Python, assets, HolaGissel
+# ══════════════════════════════════════════════════════════════
 
-# Excepto .gitignore y HolaGissel
-!.gitignore
-!HolaGissel/
+# ── Código fuente C# (todo) ───────────────────────────────────
+*.cs
+*.xaml
+*.csproj
+*.sln
+*.props
+*.targets
+*.resx
+*.settings
+*.config
+*.json.user
+AssemblyInfo.cs
+
+# ── Carpetas de build/compilación ────────────────────────────
+**/obj/
+**/obj/**
+.vs/
+*.user
+*.suo
+*.DotSettings.user
+
+# ── SDK (código fuente, no el .dll compilado) ─────────────────
+MascotaSaltarina.SDK/
+
+# ── publish_fd SÍ se sube (lo descarga el updater) ───────────
+# bin/ SÍ se sube (referencia)
+# — no ignorar ninguno de los dos —
+
+# ── Python cache ──────────────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+dist/
+build/
+*.spec
+
+# ── Screenshots generados por la app ─────────────────────────
+screenshots/
+
+# ── Save data del usuario ─────────────────────────────────────
+assets/data/save_data.json
+HolaGissel/assets/data/save_data.json
+
+# ── OS ────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
