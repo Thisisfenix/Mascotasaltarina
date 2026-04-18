@@ -1,1 +1,6 @@
 2.8
+
+NOTA: Este archivo es para la versión Python (legacy).
+Para la versión C# (Ankush Cat v3.0+), ver:
+- MascotaSaltarinaCS/version.txt
+- O ankushcat_version.txt en la carpeta de instalación

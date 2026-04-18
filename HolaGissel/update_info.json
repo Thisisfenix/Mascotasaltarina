@@ -30,6 +30,6 @@
     "NAudio.Midi.dll",
     "NAudio.Asio.dll",
     "NAudio.WinForms.dll",
-    "version.txt"
+    "Rebornversion.txt"
   ]
 }
