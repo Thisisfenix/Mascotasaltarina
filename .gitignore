@@ -22,13 +22,15 @@ AssemblyInfo.cs
 # ── Carpetas de build/compilación ────────────────────────────
 **/obj/
 **/obj/**
+MascotaSaltarinaCS/bin/
 .vs/
 *.user
 *.suo
 *.DotSettings.user
 
-# ── SDK (código fuente, no el .dll compilado) ─────────────────
+# ── SDK y Installer (código fuente, no los .exe compilados) ──
 MascotaSaltarina.SDK/
+AnkushCatInstaller/
 
 # ── publish_fd SÍ se sube (lo descarga el updater) ───────────
 # bin/ SÍ se sube (referencia)
