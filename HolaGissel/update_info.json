@@ -1,7 +1,7 @@
 {
-  "version": "3.0.1",
-  "nombre": "Ankush Cat v3.0.1 - Reborn",
-  "descripcion": "Fix instalador: ahora descarga assets, mods y dlcs correctamente.",
+  "version": "3.0.2",
+  "nombre": "Ankush Cat v3.0.2 - Reborn",
+  "descripcion": "Mejoras en instalador y sistema de actualizaciones.",
   "dotnet_url": "https://dotnet.microsoft.com/en-us/download/dotnet/8.0",
   "changelog": [
     "🐛 Fix: Instalador ahora descarga assets, mods y dlcs",
