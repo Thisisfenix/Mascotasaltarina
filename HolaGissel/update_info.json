@@ -1,16 +1,12 @@
 {
-  "version": "3.0.3",
-  "nombre": "Ankush Cat v3.0.3 - Reborn",
-  "descripcion": "Fixes de espejo, dados, baño, clones, mods y DLCs.",
+  "version": "3.0.4",
+  "nombre": "Ankush Cat v3.0.4 - Reborn",
+  "descripcion": "Fix crítico de clones y protección del save data.",
   "dotnet_url": "https://dotnet.microsoft.com/en-us/download/dotnet/8.0",
   "changelog": [
-    "🐛 Fix: Espejo horizontal y vertical ahora funcionan",
-    "🐛 Fix: Dados tiran al activar y no se acumulan",
-    "🐛 Fix: Baño muestra imagen, para sonido y restaura posición",
-    "🐛 Fix: Clones ya no se duplican en bucle infinito",
-    "✨ Nuevo: Explosión con fragmentos y reaparición",
-    "🔧 Fix: Mods y DLCs usan API correcta (IModHost)",
-    "⚡ Mejora: Updater solo descarga archivos cambiados"
+    "🐛 Fix crítico: Clones ya no crashean con overflow de posición",
+    "🔒 Fix: Updates ya no borran el save data del usuario",
+    "🐛 Fix: Velocidad de clones tiene cap absoluto de 20px/frame"
   ],
   "exe_nombre": "AnkushCat.exe",
   "base_url": "https://raw.githubusercontent.com/Thisisfenix/Mascotasaltarina/main/MascotaSaltarinaCS/publish",
