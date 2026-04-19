@@ -19,6 +19,12 @@
 *.py
 AssemblyInfo.cs
 
+# Excepciones: los .cs de mods y dlcs en publish SÍ se suben
+!MascotaSaltarinaCS/publish/mods/*.cs
+!MascotaSaltarinaCS/publish/dlcs/*.cs
+!mods/*.cs
+!dlcs/*.cs
+
 # ── Carpetas de build/compilación ────────────────────────────
 **/obj/
 **/obj/**

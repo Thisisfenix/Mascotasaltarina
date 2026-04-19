@@ -1,14 +1,16 @@
 {
-  "version": "3.0.2",
-  "nombre": "Ankush Cat v3.0.2 - Reborn",
-  "descripcion": "Mejoras en instalador y sistema de actualizaciones.",
+  "version": "3.0.3",
+  "nombre": "Ankush Cat v3.0.3 - Reborn",
+  "descripcion": "Fixes de espejo, dados, baño, clones, mods y DLCs.",
   "dotnet_url": "https://dotnet.microsoft.com/en-us/download/dotnet/8.0",
   "changelog": [
-    "🐛 Fix: Instalador ahora descarga assets, mods y dlcs",
-    "🐛 Fix: Error al cerrar la aplicación (Window_Closing)",
-    "🐛 Fix: Error de archivos DLL en uso al compilar mods",
-    "� Simplificado: Ahora usa solo publish/ (eliminado publish_fd/)",
-    "✨ Limpio: 0 advertencias de compilación"
+    "🐛 Fix: Espejo horizontal y vertical ahora funcionan",
+    "🐛 Fix: Dados tiran al activar y no se acumulan",
+    "🐛 Fix: Baño muestra imagen, para sonido y restaura posición",
+    "🐛 Fix: Clones ya no se duplican en bucle infinito",
+    "✨ Nuevo: Explosión con fragmentos y reaparición",
+    "🔧 Fix: Mods y DLCs usan API correcta (IModHost)",
+    "⚡ Mejora: Updater solo descarga archivos cambiados"
   ],
   "exe_nombre": "AnkushCat.exe",
   "base_url": "https://raw.githubusercontent.com/Thisisfenix/Mascotasaltarina/main/MascotaSaltarinaCS/publish",
